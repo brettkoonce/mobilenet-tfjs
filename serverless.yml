@@ -1,0 +1,27 @@
+service:
+    name: hello-world
+    config:
+      accountId: 9774cce613faeb7261f5d3a4abbc5708 
+      zoneId: c22ea0717889873da2a628353a23961f 
+      workers:
+        hello:
+          routes:
+            - brettkoonce.com/hello/*
+
+provider:
+  name: cloudflare
+
+plugins:
+  - serverless-cloudflare-workers
+
+functions:
+  helloWorld:
+    worker: hello
+    script: helloWorld  # there must be a file called helloWorld.js
+    events:
+      - http:
+          url: brettkoonce.com/hello/user
+          method: GET
+          headers:
+            foo: bar
+            x-client-data: value
