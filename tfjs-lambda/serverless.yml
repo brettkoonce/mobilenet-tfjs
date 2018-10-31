@@ -1,0 +1,16 @@
+service:
+  name: tfjs
+
+provider:
+  name: openwhisk
+  runtime: docker
+  # image: sgraham785/tfjs-openwisk
+
+functions:
+  classify:
+    handler: sgraham785/tfjs-openwisk
+
+# extend the framework using plugins listed here:
+# https://github.com/serverless/plugins
+plugins:
+  - serverless-openwhisk

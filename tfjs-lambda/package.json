@@ -1,0 +1,9 @@
+{
+  "name": "mobilenet",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "serverless-openwhisk": "^0.15.0"
+  }
+}
