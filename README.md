@@ -1,11 +1,27 @@
+
+## Links
+
+Heavily based off of  [a blog post by James Thomas](http://jamesthom.as/blog/2018/08/13/serverless-machine-learning-with-tensorflow-dot-js/).
+
+
+## Test commands
+
 ```
-(echo -n '{"image": "'; base64 ./panda.jpg; echo '"}') | curl -u e742b9bb-a678-428d-a1c1-1fdc370e6d2a:Io6TQ4lQqzcQz64lTq5jf9BiYgE1EzP1b5OQlqaCJWLneQKbYi2o16R4Lhv29v4m -d @- -H "Content-Type: application/json" -X POST https://openwhisk.ng.bluemix.net/api/v1/namespaces/sgraham785%40gmail.com_dev/actions/classify?blocking=true
+(echo -n '{"image": "'; base64 ./panda.jpg; echo '"}') | curl -u 268a0fa1-6af8-4a6e-bb58-1e3ef8113ad7:pGOaYxUb1wLhzDa47Mk9dmLpsLxjIIHPZcvt9fDDk3bu0YTBTfyDvSQ2R5MhA3ob -d @- -H "Content-Type: application/json" -X POST https://openwhisk.ng.bluemix.net/api/v1/namespaces/brett%40quarkworks.co_dev/actions/classify?blocking=true
 ```
+
+
+```
+(echo -n '{"image": "'; base64 ./bird.jpg; echo '"}') | curl -u 268a0fa1-6af8-4a6e-bb58-1e3ef8113ad7:pGOaYxUb1wLhzDa47Mk9dmLpsLxjIIHPZcvt9fDDk3bu0YTBTfyDvSQ2R5MhA3ob -d @- -H "Content-Type: application/json" -X POST https://openwhisk.ng.bluemix.net/api/v1/namespaces/brett%40quarkworks.co_dev/actions/classify?blocking=true
+```
+
+## Notes
+
 
 if you deploy your own ibmcloud instance, you can create your own:
 
 ```
-ibmcloud fn action create classify --docker sgraham785/tfjs-openwisk index.js
+ibmcloud fn action update classify --docker jamesthomas/action-nodejs-v8:tfjs index.js
 ```
 
 then invoke:
